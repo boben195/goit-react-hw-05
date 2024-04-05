@@ -1,6 +1,9 @@
 import Navigation from "./Navigation/Navigation";
 import Loader from "./Loader/Loader";
 import { Suspense, lazy } from "react";
+
+import MovieCast from "./MovieCast/MovieCast.jsx";
+
 const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
 const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage.jsx"));
 
@@ -21,7 +24,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/movies" element={<MoviesPage />}></Route>
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />}></Route>
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />}></Route>
+          </Route>
         </Routes>
       </Suspense>
       <Toaster />
