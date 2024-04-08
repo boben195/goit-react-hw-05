@@ -1,10 +1,16 @@
 .header {
-    background-color: yellow;
+    background-color: rgb(167, 167, 138);
+    gap: 25px;
+    
 }
 
 .headerLink {
-    color: black
+    color: rgb(33, 32, 32);
+    margin: 10px;
 }
+
+
 .active {
     color: red;
+    
 }

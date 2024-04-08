@@ -1,0 +1,9 @@
+.list {
+    list-style: none;
+    margin-right: 20px;
+}
+
+.author {
+    font-size: 400;
+    font-weight: bolder;
+}

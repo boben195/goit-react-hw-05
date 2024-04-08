@@ -70,19 +70,21 @@ const MovieDetailsPage = () => {
           <h3>OVERVIEW</h3>
           <p>{movie.overview}</p>
           <h3>GENRES</h3>
-          {/* <ul>
-            {movie.map((el) => (
+          <ul className={css.list}>
+            {movie.genres.map((el) => (
               <li key={el.id}>{el.name}</li>
             ))}
-          </ul> */}
+          </ul>
         </div>
       )}
       <div>
         <h3>ADDITIONAL INFORMATION</h3>
-        <NavLink className={getNavLinkClass} to="cast">
-          CAST
-        </NavLink>
-        <NavLink className={getNavLinkClass} to="reviews">
+        <div className={css.links}>
+          <NavLink className={getNavLinkClass} to="cast">
+            CAST
+          </NavLink>
+        </div>
+        <NavLink className={getNavLinkClass} to="review">
           REVIEWS
         </NavLink>
       </div>

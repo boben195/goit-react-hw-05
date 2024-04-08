@@ -1,6 +1,8 @@
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
+import css from "../MovieCast/MovieCast.module.css";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -35,7 +37,7 @@ const MovieCast = () => {
     <div>
       {cast !== undefined && cast.length > 0
         ? cast.map((el) => (
-            <ul key={el.id}>
+            <ul className={css.list} key={el.id}>
               <li>
                 <img
                   src={

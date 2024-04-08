@@ -10,12 +10,14 @@ const getNavLinkClass = ({ isActive }) =>
 const Navigation = () => {
   return (
     <header className={css.header}>
-      <NavLink className={getNavLinkClass} to="/">
-        HOME
-      </NavLink>
-      <NavLink className={getNavLinkClass} to="/movies">
-        MOVIES
-      </NavLink>
+      <div className={css.headerLink}>
+        <NavLink className={getNavLinkClass} to="/">
+          HOME
+        </NavLink>
+        <NavLink className={getNavLinkClass} to="/movies">
+          MOVIES
+        </NavLink>
+      </div>
     </header>
   );
 };
