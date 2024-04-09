@@ -44,7 +44,7 @@ const MoviesPage = () => {
       <SearchBar onAdd={onAdd} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
-      {movie && <MovieList movie={movie} />}
+      {movie.length > 0 && <MovieList movie={movie} />}
     </div>
   );
 };

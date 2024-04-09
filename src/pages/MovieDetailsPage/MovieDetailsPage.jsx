@@ -1,5 +1,5 @@
 import { getMovieById } from "../../components/services/api";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useRef } from "react";
 import {
   useParams,
   NavLink,
@@ -9,10 +9,11 @@ import {
 } from "react-router-dom";
 
 import css from "../MovieDetailsPage/MovieDetailsPage.module.css";
+import clsx from "clsx";
 
 import Loader from "../../components/Loader/Loader";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import clsx from "clsx";
+
 import { useEffect } from "react";
 
 const getNavLinkClass = ({ isActive }) =>
@@ -22,7 +23,7 @@ const getNavLinkClass = ({ isActive }) =>
 
 const MovieDetailsPage = () => {
   const location = useLocation();
-  const backLink = location.state?.from ?? "/";
+  const backLink = useRef(location.state ?? "/");
 
   const { movieId } = useParams();
 
@@ -32,7 +33,7 @@ const MovieDetailsPage = () => {
   const [isError, setIsError] = useState(false);
   /*3 main states************* */
   const defaultImg =
-    "<https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg>";
+    "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
   useEffect(() => {
     async function getData() {
       try {
@@ -51,7 +52,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <Link to={backLink}>GO BACK</Link>
+      <Link to={backLink.current}>GO BACK</Link>
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       {movie && (
