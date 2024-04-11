@@ -1,11 +1,21 @@
-import Navigation from "./Navigation/Navigation";
-import Loader from "./Loader/Loader";
-import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage.jsx";
-import MovieReviews from "./MovieReviews/MovieReviews.jsx";
-import MovieCast from "./MovieCast/MovieCast.jsx";
+//import Navigation from "./Navigation/Navigation";
+//import Loader from "./Loader/Loader";
+//import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage.jsx";
+//import MovieReviews from "./MovieReviews/MovieReviews.jsx";
+//import MovieCast from "./MovieCast/MovieCast.jsx";
 
 import { Suspense, lazy } from "react";
-
+const Navigation = lazy(() =>
+  import("../components/Navigation/Navigation.jsx")
+);
+const Loader = lazy(() => import("../components/Loader/Loader.jsx"));
+const MovieReviews = lazy(() =>
+  import("../components/MovieReviews/MovieReviews.jsx")
+);
+const MovieCast = lazy(() => import("../components/MovieCast/MovieCast.jsx"));
+const MovieDetailsPage = lazy(() =>
+  import("../pages/MovieDetailsPage/MovieDetailsPage.jsx")
+);
 const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
 const MoviesPage = lazy(() => import("../pages/MoviesPage/MoviesPage.jsx"));
 const NotFoundPage = lazy(() =>
